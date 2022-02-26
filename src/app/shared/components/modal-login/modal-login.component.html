@@ -1,0 +1,145 @@
+<div class="abrir-modal" *ngIf="modalLoginService.showModal">
+  <div class="modal" id="exampleModal" style="display: block;">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            (click)="cerrarModal()"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <!-- ================================================================================== -->
+            <!-- ===================================== TABS ============================================= -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="signUp-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#signUp"
+                  type="button"
+                  role="tab"
+                  aria-controls="signUp"
+                  aria-selected="true"
+                >
+                  Sign Up
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="signIn-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#signIn"
+                  type="button"
+                  role="tab"
+                  aria-controls="signIn"
+                  aria-selected="false"
+                >
+                  Sign In
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+              <!-- ================================================================================== -->
+              <!-- ===================================== SIGN UP ============================================= -->
+              <div
+                class="tab-pane fade show active"
+                id="signUp"
+                role="tabpanel"
+                aria-labelledby="signUp-tab"
+              >
+                <form>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">
+                      Email:
+                    </label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="example@mail.com"
+                      id="recipient-name"
+                    />
+                    <label for="message-text" class="col-form-label">
+                      Password:
+                    </label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Your Password"
+                      id="recipient-name"
+                    />
+                  </div>
+                  <button type="button" class="btn btn-primary m-1">
+                    Sign Up
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    (click)="cerrarModal()"
+                  >
+                    Cancel
+                  </button>
+                </form>
+              </div>
+              <!-- ================================================================================== -->
+              <!-- ===================================== SIGN IN ============================================= -->
+              <div
+                class="tab-pane fade"
+                id="signIn"
+                role="tabpanel"
+                aria-labelledby="signIn-tab"
+              >
+                <form>
+                  <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">
+                      Email:
+                    </label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="example@mail.com"
+                      id="recipient-name"
+                    />
+                    <label for="message-text" class="col-form-label">
+                      Password:
+                    </label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      placeholder="Your Password"
+                      id="recipient-name"
+                    />
+                  </div>
+                  <button
+                    (click)="signIn()"
+                    type="button"
+                    class="btn btn-primary m-1"
+                  >
+                    Sign In
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                    (click)="cerrarModal()"
+                  >
+                    Cancel
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

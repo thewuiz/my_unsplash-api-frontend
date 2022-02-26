@@ -1,0 +1,18 @@
+.footer {
+  position: absolute;
+  bottom: 0px;
+  height: 30px;
+  width: 100%;
+}
+
+.footer div {
+  width: 100%;
+}
+
+h5 {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #a9a9a9;
+}

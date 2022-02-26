@@ -1,0 +1,32 @@
+.navbar-brand h6 {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.navbar-brand i {
+  font-size: 1.5em;
+}
+
+.navbar-brand p {
+  font-weight: 500;
+  font-size: 9px;
+  line-height: 0;
+}
+
+.succes-button {
+  padding: 12px;
+  background: #3db46d;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+}
+
+nav input {
+  width: 300px;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+  border-radius: 12px;
+}
