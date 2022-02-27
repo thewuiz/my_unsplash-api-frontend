@@ -23,10 +23,23 @@
   color: #fff;
 }
 
-nav input {
-  width: 300px;
-  border: 1px solid #bdbdbd;
-  box-sizing: border-box;
-  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
-  border-radius: 12px;
+/* Escritorio pequeño / tablet */
+@media (max-width: 991px) {
+  nav input {
+    width: 100%;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 991px) {
+  nav input {
+    width: 300px;
+    border: 1px solid #bdbdbd;
+    box-sizing: border-box;
+    filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+    border-radius: 12px;
+  }
 }

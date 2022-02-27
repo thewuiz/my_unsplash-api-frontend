@@ -1,24 +1,80 @@
-<div class="container p-3">
-  <div class="row row-cols-1 row-cols-md-3 d justify-content-between g-1">
+<div class="container pt-5" *ngIf="!authService.isAuthenticated()">
+  <div class="row">
     <div class="col">
-      <img class="p-1" src="assets/img/development4.jpg" alt="..." />
-      <img class="p-1" src="assets/img/code2.jpg" alt="..." />
-      <img class="p-1" src="assets/img/code4.jpg" alt="..." />
-      <img class="p-1" src="assets/img/home.jpg" alt="..." />
-      <img class="p-1" src="assets/img/code1.jpg" alt="..." />
+      <div class="alert alert-info p-3 text-center" role="alert">
+        Login to upload your images :D
+      </div>
     </div>
+  </div>
+</div>
+<div
+  class="container pt-5"
+  *ngIf="authService.isAuthenticated() && images.length == 0"
+>
+  <div class="row">
     <div class="col">
-      <img class="p-1" src="assets/img/code2.jpg" alt="..." />
-      <img class="p-1" src="assets/img/code3.jpg" alt="..." />
-      <img class="p-1" src="assets/img/home.jpg" alt="..." />
-      <img class="p-1" src="assets/img/code1.jpg" alt="..." />
+      <div class="alert alert-info p-3 text-center" role="alert">
+        Click on add a photo to upload your images :D
+      </div>
     </div>
-    <div class="col">
-      <img class="p-1" src="assets/img/code3.jpg" alt="..." />
-      <img class="p-1" src="assets/img/home.jpg" alt="..." />
-      <img class="p-1" src="assets/img/code2.jpg" alt="..." />
-      <img class="p-1" src="assets/img/code1.jpg" alt="..." />
-      <img class="p-1" src="assets/img/code4.jpg" alt="..." />
+  </div>
+</div>
+
+<div class="container p-3" *ngIf="authService.isAuthenticated()">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+    <div *ngIf="imagesA1.length > 0" class="col">
+      <figure *ngFor="let image of imagesA1">
+        <img
+          class="p-1"
+          [title]="image.label"
+          [src]="image.image_url"
+          [alt]="image.label"
+        />
+        <div class="texto">
+          <div class="d-flex justify-content-end">
+            <button (click)="deleteImage(image)" type="button">delete</button>
+          </div>
+          <div class="d-flex justify-content-start align-items-end">
+            <p>{{ image.label }}</p>
+          </div>
+        </div>
+      </figure>
+    </div>
+    <div *ngIf="imagesA2.length > 0" class="col">
+      <figure *ngFor="let image of imagesA2">
+        <img
+          class="p-1"
+          [src]="image.image_url"
+          [title]="image.label"
+          [alt]="image.label"
+        />
+        <div class="texto">
+          <div class="d-flex justify-content-end">
+            <button (click)="deleteImage(image)" type="button">delete</button>
+          </div>
+          <div class="d-flex justify-content-start align-items-end">
+            <p>{{ image.label }}</p>
+          </div>
+        </div>
+      </figure>
+    </div>
+    <div *ngIf="imagesA3.length > 0" class="col">
+      <figure *ngFor="let image of imagesA3">
+        <img
+          class="p-1"
+          [src]="image.image_url"
+          [title]="image.label"
+          [alt]="image.label"
+        />
+        <div class="texto">
+          <div class="d-flex justify-content-end">
+            <button (click)="deleteImage(image)" type="button">delete</button>
+          </div>
+          <div class="d-flex justify-content-start align-items-end">
+            <p>{{ image.label }}</p>
+          </div>
+        </div>
+      </figure>
     </div>
   </div>
 </div>

@@ -55,28 +55,44 @@
                 role="tabpanel"
                 aria-labelledby="signUp-tab"
               >
-                <form>
+                <form
+                  id="signupform"
+                  (ngSubmit)="signUp()"
+                  autocomplete="off"
+                  method="post"
+                >
                   <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">
+                    <label for="signUp-email" class="col-form-label">
                       Email:
                     </label>
                     <input
                       type="email"
+                      [(ngModel)]="usuarioSignUp.email"
                       class="form-control"
                       placeholder="example@mail.com"
-                      id="recipient-name"
+                      id="signUp-email"
+                      name="signUp-email"
                     />
-                    <label for="message-text" class="col-form-label">
+                    <label for="signUp-password" class="col-form-label">
                       Password:
                     </label>
                     <input
                       type="password"
+                      [(ngModel)]="usuarioSignUp.password"
                       class="form-control"
                       placeholder="Your Password"
-                      id="recipient-name"
+                      id="signUp-password"
+                      name="signUp-password"
                     />
                   </div>
-                  <button type="button" class="btn btn-primary m-1">
+
+                  <div class="col-12" *ngIf="errors.length > 0">
+                    <ul class="alert alert-danger">
+                      <li class="ms-2" *ngFor="let err of errors">{{ err }}</li>
+                    </ul>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary m-1">
                     Sign Up
                   </button>
                   <button
@@ -97,30 +113,40 @@
                 role="tabpanel"
                 aria-labelledby="signIn-tab"
               >
-                <form>
+                <form id="loginform" autocomplete="off" method="post">
                   <div class="mb-3">
-                    <label for="recipient-name" class="col-form-label">
+                    <label for="signIn-email" class="col-form-label">
                       Email:
                     </label>
                     <input
+                      [(ngModel)]="usuario.email"
                       type="email"
                       class="form-control"
                       placeholder="example@mail.com"
-                      id="recipient-name"
+                      id="signIn-email"
+                      name="signIn-email"
                     />
-                    <label for="message-text" class="col-form-label">
+                    <label for="signIn-password" class="col-form-label">
                       Password:
                     </label>
                     <input
+                      [(ngModel)]="usuario.password"
                       type="password"
                       class="form-control"
                       placeholder="Your Password"
-                      id="recipient-name"
+                      id="signIn-password"
+                      name="signIn-password"
                     />
                   </div>
+                  <div class="col-12" *ngIf="errors.length > 0">
+                    <ul class="alert alert-danger">
+                      <li class="ms-2" *ngFor="let err of errors">{{ err }}</li>
+                    </ul>
+                  </div>
+
                   <button
-                    (click)="signIn()"
                     type="button"
+                    (click)="signIn()"
                     class="btn btn-primary m-1"
                   >
                     Sign In
@@ -137,7 +163,6 @@
               </div>
             </div>
           </div>
-          <div class="modal-footer"></div>
         </div>
       </div>
     </div>

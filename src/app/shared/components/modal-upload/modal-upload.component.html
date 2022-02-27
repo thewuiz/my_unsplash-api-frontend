@@ -1,1 +1,77 @@
-<p>modal-upload works!</p>
+<div class="abrir-modal" *ngIf="modalUploadService.showModal">
+  <div
+    class="modal"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    style="display: block;"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add a new photo</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            (click)="cerrarModal()"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form
+            id="uploadImage"
+            (ngSubmit)="addImage()"
+            autocomplete="off"
+            method="post"
+          >
+            <div class="mb-3">
+              <label for="labelImage" class="col-form-label">
+                Label:
+              </label>
+              <input
+                [(ngModel)]="image.label"
+                type="text"
+                class="form-control"
+                placeholder="Your label, maximum 50 characters"
+                id="labelImage"
+                name="labelImage"
+              />
+              <label for="urlImage" class="col-form-label">
+                Phto URL:
+              </label>
+              <input
+                [(ngModel)]="image.image_url"
+                type="url"
+                class="form-control"
+                placeholder="Your photo URL"
+                id="urlImage"
+                name="urlImage"
+              />
+            </div>
+            <ul class="alert alert-danger" *ngIf="errors.length > 0">
+              <li class="ms-2" *ngFor="let err of errors">{{ err }}</li>
+            </ul>
+
+            <div class="col-12 d-flex justify-content-end">
+              <button
+                type="button"
+                class="btn btn-light"
+                data-bs-dismiss="modal"
+                (click)="cerrarModal()"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn-green ms-1">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

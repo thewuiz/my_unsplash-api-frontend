@@ -25,20 +25,45 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
-      <div class="col-10">
+      <div class="col-md-12 col-lg-9">
         <form class="d-flex">
           <input
+            [(ngModel)]="search"
             class="form-control me-2"
             type="search"
             placeholder="Search"
             aria-label="Search"
+            name="searchInput"
+            #searchInput
           />
         </form>
       </div>
-      <div class="col-2 d-flex justify-content-end">
+      <div class="col-md-12 col-lg-3 d-flex p-md-1 p-lg-0 justify-content-end">
+        <div class="btn-group" *ngIf="isAuthenticated()">
+          <button
+            (click)="abrirModalUpload()"
+            type="button"
+            class="btn succes-button"
+          >
+            Add a Photo
+          </button>
+          <button
+            type="button"
+            class="btn succes-button dropdown-toggle dropdown-toggle-split"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          ></button>
+          <ul class="dropdown-menu">
+            <li>
+              <a (click)="logout()" class="dropdown-item">Logout</a>
+            </li>
+          </ul>
+        </div>
+
         <button
+          *ngIf="!isAuthenticated()"
           class="succes-button mt-2 mt-md-0"
-          type="submit"
+          type="button"
           (click)="abrirModal()"
         >
           Login
